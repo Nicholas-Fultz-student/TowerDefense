@@ -11,11 +11,14 @@ namespace TowerDefense
         public float speed = 1f;
         public int damage = 1;
 
+        
+       
         void Start()
         {
             path = FindObjectOfType<Path>();
             StartCoroutine(FollowPath());
         }
+        
 
         IEnumerator FollowPath()
         {
@@ -30,8 +33,14 @@ namespace TowerDefense
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target - start), 0.05f);
                 if (transform.position == target) index++;
                 yield return null;
+                
             }
+            Player player = FindObjectOfType<Player>();
+            Health.TryDamage(player.gameObject, damage);
+            Destroy(gameObject);
         }
+
+
     }
 }
 

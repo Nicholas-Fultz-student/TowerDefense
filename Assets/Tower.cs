@@ -49,7 +49,7 @@ namespace TowerDefense
         public void DamageTarget()
         {
             if (!enemyTarget) return;
-            Health.TryDamage(enemyTarget, towerType.damage);
+            Health.TryDamage(enemyTarget,towerType.damage);
 
         }
 
