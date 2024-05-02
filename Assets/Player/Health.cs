@@ -18,7 +18,8 @@ namespace TowerDefense
          void TakeDamage(int damageAmount)
         {
             currentHealth -= damageAmount;
-
+            ValueDisplay.OnValueChanged.Invoke(gameObject.name + "Health", currentHealth);
+            
             if (currentHealth < 1)
             {
                 Destroy(gameObject);
